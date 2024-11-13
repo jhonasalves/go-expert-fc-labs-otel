@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  server-b:
+    build:
+      context: .
+      args:
+        SERVICE_NAME: server-b
+    container_name: server-b
+    ports:
+      - 8080:8080
