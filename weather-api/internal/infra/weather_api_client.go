@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/jhonasalves/go-expert-fc-labs-otel/server-b/internal/entity"
+	"github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/entity"
 )
 
 type WeatherAPIClient struct {

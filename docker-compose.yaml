@@ -1,12 +1,12 @@
 version: '3'
 
 services:
-  server-b:
+  weather-api:
     build:
       context: .
       args:
-        SERVICE_NAME: server-b
-    container_name: server-b
+        SERVICE_NAME: weather-api
+    container_name: weather-api
     ports:
       - 8080:8080
     networks:

@@ -3,8 +3,8 @@ package usecase
 import (
 	"fmt"
 
-	"github.com/jhonasalves/go-expert-fc-labs-otel/server-b/internal/entity"
-	"github.com/jhonasalves/go-expert-fc-labs-otel/server-b/internal/infra"
+	"github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/entity"
+	"github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/infra"
 )
 
 type WeatherUseCase struct {

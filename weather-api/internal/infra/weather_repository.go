@@ -1,6 +1,6 @@
 package infra
 
-import "github.com/jhonasalves/go-expert-fc-labs-otel/server-b/internal/entity"
+import "github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/entity"
 
 type WeatherRepository struct {
 	WeatherAPIClient WeatherAPIClient

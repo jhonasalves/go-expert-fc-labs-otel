@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi"
-	"github.com/jhonasalves/go-expert-fc-labs-otel/server-b/internal/usecase"
+	"github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/usecase"
 )
 
 type WeatherHandler struct {
