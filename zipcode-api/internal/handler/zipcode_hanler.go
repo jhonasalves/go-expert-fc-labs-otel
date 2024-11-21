@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/jhonasalves/go-expert-fc-labs-otel/server-a/internal/usecase"
+	"github.com/jhonasalves/go-expert-fc-labs-otel/zipcode-api/internal/usecase"
 )
 
 type ZipCodeHandler struct {

@@ -4,10 +4,10 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/jhonasalves/go-expert-fc-labs-otel/server-a/configs"
-	"github.com/jhonasalves/go-expert-fc-labs-otel/server-a/internal/handler"
-	"github.com/jhonasalves/go-expert-fc-labs-otel/server-a/internal/infra"
-	"github.com/jhonasalves/go-expert-fc-labs-otel/server-a/internal/usecase"
+	"github.com/jhonasalves/go-expert-fc-labs-otel/zipcode-api/configs"
+	"github.com/jhonasalves/go-expert-fc-labs-otel/zipcode-api/internal/handler"
+	"github.com/jhonasalves/go-expert-fc-labs-otel/zipcode-api/internal/infra"
+	"github.com/jhonasalves/go-expert-fc-labs-otel/zipcode-api/internal/usecase"
 )
 
 func main() {

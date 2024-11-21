@@ -12,12 +12,12 @@ services:
     networks:
       - app-network
       
-  server-a:
+  zipcode-api:
     build:
       context: .
       args:
-        SERVICE_NAME: server-a
-    container_name: server-a
+        SERVICE_NAME: zipcode-api
+    container_name: zipcode-api
     ports:
       - 8081:8081
     networks:

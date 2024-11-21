@@ -1,8 +1,8 @@
 package usecase
 
 import (
-	"github.com/jhonasalves/go-expert-fc-labs-otel/server-a/internal/entity"
-	"github.com/jhonasalves/go-expert-fc-labs-otel/server-a/internal/infra"
+	"github.com/jhonasalves/go-expert-fc-labs-otel/zipcode-api/internal/entity"
+	"github.com/jhonasalves/go-expert-fc-labs-otel/zipcode-api/internal/infra"
 )
 
 type ZipCodeUseCase struct {

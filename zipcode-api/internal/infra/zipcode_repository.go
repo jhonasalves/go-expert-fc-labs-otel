@@ -6,7 +6,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/jhonasalves/go-expert-fc-labs-otel/server-a/internal/entity"
+	"github.com/jhonasalves/go-expert-fc-labs-otel/zipcode-api/internal/entity"
 )
 
 type ZipCodeRepository interface {
