@@ -9,3 +9,20 @@ services:
     container_name: server-b
     ports:
       - 8080:8080
+    networks:
+      - app-network
+      
+  server-a:
+    build:
+      context: .
+      args:
+        SERVICE_NAME: server-a
+    container_name: server-a
+    ports:
+      - 8081:8081
+    networks:
+      - app-network
+  
+networks:
+  app-network:
+    driver: bridge
