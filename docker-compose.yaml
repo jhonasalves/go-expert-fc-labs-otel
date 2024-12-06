@@ -1,6 +1,24 @@
 version: '3'
 
 services:
+  zipkin:
+    image: openzipkin/zipkin-slim:latest
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+
+  otel-collector:
+    image: otel/opentelemetry-collector:latest
+    restart: always
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./.docker/otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - "1888:1888"   # pprof extension
+      - "4317:4317"   # OTLP gRPC receiver
+      - "13133:13133" # health_check extension
+      - "55679:55679" # zpages extension
+
   weather-api:
     build:
       context: .
@@ -9,6 +27,9 @@ services:
     container_name: weather-api
     ports:
       - 8080:8080
+    depends_on:
+      - zipkin
+      - otel-collector
     networks:
       - app-network
       
@@ -20,6 +41,9 @@ services:
     container_name: zipcode-api
     ports:
       - 8081:8081
+    depends_on:
+      - zipkin
+      - otel-collector
     networks:
       - app-network
   
