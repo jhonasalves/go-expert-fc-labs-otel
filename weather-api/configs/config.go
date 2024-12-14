@@ -4,6 +4,7 @@ import "github.com/spf13/viper"
 
 type conf struct {
 	WeatherAPIKey string `mapstructure:"WEATHER_API_KEY"`
+	ZipkinURL     string `mapstructure:"ZIPKIN_URL"`
 }
 
 func LoadConfig(path string) (*conf, error) {
