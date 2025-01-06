@@ -5,6 +5,7 @@ go 1.22.4
 require (
 	github.com/go-chi/chi v1.5.5
 	github.com/spf13/viper v1.19.0
+	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.49.0
 	go.opentelemetry.io/otel v1.33.0
 	go.opentelemetry.io/otel/exporters/stdout/stdoutlog v0.9.0
 	go.opentelemetry.io/otel/exporters/zipkin v1.33.0
@@ -14,6 +15,7 @@ require (
 )
 
 require (
+	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect

@@ -10,10 +10,11 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
+
+	"github.com/jhonasalves/go-expert-fc-labs-otel/pkg/opentelemetry"
 	"github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/configs"
 	"github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/handler"
 	"github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/infra"
-	"github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/infra/opentelemetry"
 
 	"github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/usecase"
 )

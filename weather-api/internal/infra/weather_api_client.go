@@ -1,11 +1,13 @@
 package infra
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
 
 	"github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/entity"
+	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 )
 
 type WeatherAPIClient struct {
@@ -18,9 +20,19 @@ type WeatherAPIResponse struct {
 	} `json:"current"`
 }
 
-func (c *WeatherAPIClient) FetchWeather(city string) (*entity.Weather, error) {
+func (c *WeatherAPIClient) FetchWeather(ctx context.Context, city string) (*entity.Weather, error) {
+	ctx, span := tracer.Start(ctx, "FetchWeather")
+	defer span.End()
+
 	url := fmt.Sprintf("http://api.weatherapi.com/v1/current.json?key=%s&q=%s", c.APIKey, city)
-	resp, err := http.Get(url)
+	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	client := http.Client{Transport: otelhttp.NewTransport(http.DefaultTransport)}
+
+	resp, err := client.Do(req)
 	if err != nil {
 		return nil, err
 	}

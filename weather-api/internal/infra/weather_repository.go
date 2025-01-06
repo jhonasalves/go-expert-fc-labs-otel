@@ -1,6 +1,10 @@
 package infra
 
-import "github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/entity"
+import (
+	"context"
+
+	"github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/entity"
+)
 
 type WeatherRepository struct {
 	WeatherAPIClient WeatherAPIClient
@@ -14,10 +18,10 @@ func NewWeatherRepository(weatherAPIClient WeatherAPIClient, viaCepClient ViaCep
 	}
 }
 
-func (r *WeatherRepository) GetWeather(city string) (*entity.Weather, error) {
-	return r.WeatherAPIClient.FetchWeather(city)
+func (r *WeatherRepository) GetWeather(ctx context.Context, city string) (*entity.Weather, error) {
+	return r.WeatherAPIClient.FetchWeather(ctx, city)
 }
 
-func (r *WeatherRepository) GetLocationByZipCode(zipcode string) (*entity.Location, error) {
-	return r.ViaCepClient.FetchLocation(zipcode)
+func (r *WeatherRepository) GetLocationByZipCode(ctx context.Context, zipcode string) (*entity.Location, error) {
+	return r.ViaCepClient.FetchLocation(ctx, zipcode)
 }

@@ -8,6 +8,7 @@ RUN go mod download
 ARG SERVICE_NAME
 ENV SERVICE_NAME=${SERVICE_NAME}
 
+COPY pkg/ ./pkg/
 COPY ${SERVICE_NAME}/ ${SERVICE_NAME}/
 
 RUN GOOS=linux CGO_ENABLED=0 go build -ldflags="-w -s" -o server ${SERVICE_NAME}/cmd/server/main.go

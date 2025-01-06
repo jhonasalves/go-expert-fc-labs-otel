@@ -8,6 +8,7 @@ import (
 	"go.opentelemetry.io/otel/exporters/stdout/stdoutlog"
 	"go.opentelemetry.io/otel/exporters/zipkin"
 	"go.opentelemetry.io/otel/log/global"
+	"go.opentelemetry.io/otel/propagation"
 	"go.opentelemetry.io/otel/sdk/log"
 	"go.opentelemetry.io/otel/sdk/resource"
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
@@ -44,6 +45,7 @@ func InitTracer(ctx context.Context, url string, serviceName string) (shutdown f
 
 	shutdownFuncs = append(shutdownFuncs, tp.Shutdown)
 	otel.SetTracerProvider(tp)
+	otel.SetTextMapPropagator(propagation.TraceContext{})
 
 	loggerProvider, err := newLoggerProvider()
 	if err != nil {
