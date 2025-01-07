@@ -78,7 +78,7 @@ O projeto está dividido em dois serviços principais:
 2. Clone o repositório e acesse o diretório raiz.
 3. Execute o comando:
     ```bash
-    docker-compose up --build
+    docker compose up --build
     ```
 4. Os serviços estarão disponíveis nas seguintes portas:
     - **Serviço A**: `http://localhost:8081`
