@@ -48,6 +48,7 @@ func (c *WeatherAPIClient) FetchWeather(ctx context.Context, city string) (*enti
 	}
 
 	weather := &entity.Weather{
+		City:  city,
 		TempC: apiResp.Current.TempC,
 	}
 
