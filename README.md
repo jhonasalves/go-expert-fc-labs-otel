@@ -3,6 +3,8 @@
 ## Objetivo
 Desenvolver um sistema em Go que receba um CEP, identifique a cidade e retorne o clima atual (temperatura em graus Celsius, Fahrenheit e Kelvin), juntamente com o nome da cidade. O sistema deve implementar OpenTelemetry (OTEL) e Zipkin para rastreamento distribuído.
 
+---
+
 ## Contexto
 O projeto está dividido em dois serviços principais:
 
@@ -90,8 +92,8 @@ O projeto está dividido em dois serviços principais:
 ## Testando o Sistema
 
 ### Serviço A
-- Endpoint: `POST /zipcode`
-- Exemplo de requisição:
+- **Endpoint**: `POST /zipcode`
+- **Exemplo de requisição**:
     ```bash
     curl -X POST http://localhost:8081/zipcode \
          -H 'Content-Type: application/json' \
@@ -99,7 +101,18 @@ O projeto está dividido em dois serviços principais:
     ```
 
 ### Serviço B
-- Endpoint: Interno, acessado pelo Serviço A.
+- **Endpoint**: Interno, acessado pelo Serviço A.
 
 ### Observabilidade
 - Acesse o **Zipkin UI** em `http://localhost:9411` para visualizar o rastreamento distribuído.
+
+---
+
+## Configuração de Weather API Key
+- O serviço de clima requer uma **API Key** para acessar os dados meteorológicos.
+- Utilize a API **WeatherAPI** para obter uma chave de API própria: [WeatherAPI](https://www.weatherapi.com/).
+- Certifique-se de configurar a variável de ambiente `WEATHER_API_KEY` no arquivo `.env` do projeto antes de iniciar os serviços:
+    ```env
+    WEATHER_API_KEY=your_api_key_here
+    ```
+
