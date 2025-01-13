@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/url"
 
 	"github.com/jhonasalves/go-expert-fc-labs-otel/weather-api/internal/entity"
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
@@ -24,7 +25,9 @@ func (c *WeatherAPIClient) FetchWeather(ctx context.Context, city string) (*enti
 	ctx, span := tracer.Start(ctx, "FetchWeather")
 	defer span.End()
 
-	url := fmt.Sprintf("http://api.weatherapi.com/v1/current.json?key=%s&q=%s", c.APIKey, city)
+	encodedCity := url.QueryEscape(city)
+
+	url := fmt.Sprintf("http://api.weatherapi.com/v1/current.json?key=%s&q=%s", c.APIKey, encodedCity)
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
 		return nil, err
